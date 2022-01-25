@@ -18,16 +18,16 @@ public class Normal : MonoBehaviour
 
      public int spawnCount;
     // 経過時間
-    private float time;
+    private float nowTime;
 
     // Update is called once per frame
     void Update()
     {
         var clones = GameObject.FindGameObjectsWithTag("Nomal");
         // 前フレームからの時間を加算していく
-        time = time + Time.deltaTime;
+        nowTime = nowTime + Time.deltaTime;
         // 約1秒置きにランダムに生成されるようにする。
-        if (time > 1.0f)
+        if (nowTime > 1.0f)
         {
             // rangeAとrangeBのx座標の範囲内でランダムな数値を作成
             float x = Random.Range(rangeA.position.x, rangeB.position.x);
@@ -52,7 +52,7 @@ public class Normal : MonoBehaviour
             //if (spawnCount < 1)
             //    return;
             // 経過時間リセット
-            time = 0f;
+            nowTime = 0f;
             // Destroy(gameObject);       
         }
     }
